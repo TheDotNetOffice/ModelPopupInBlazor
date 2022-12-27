@@ -1,0 +1,21 @@
+﻿@page "/userPopUp"
+
+
+<input type="text" @bind="userID" readonly/>
+
+@code {
+
+    [CascadingParameter]
+   public ModalParameters? parameters { get; set; }
+
+    [Parameter]
+    public int userID { get; set; }
+
+    protected override async void OnInitialized()
+    {
+        userID = parameters.Get<int>("userID");
+       
+
+    }
+
+}
